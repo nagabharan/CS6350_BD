@@ -1,5 +1,4 @@
 Big Data HW2
-NXN141730
 
 Sbt execution steps:
 	./sbt/bin/sbt clean

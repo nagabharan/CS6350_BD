@@ -1,5 +1,4 @@
 Big Data HW1
-NXN141730
 
 Steps to execute each part of the HW:
 Q1 - hadoop jar A1.jar Q1.Main input intr1 outputa1

@@ -1,0 +1,4 @@
+./sbt/bin/sbt clean
+./sbt/bin/sbt package
+spark-submit --class NBayes --master local target/scala-2.11/naive-bayes_2.11-1.0.jar > ./output.txt
+

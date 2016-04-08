@@ -1,0 +1,4 @@
+./sbt/bin/sbt clean
+./sbt/bin/sbt package
+spark-submit --class DTree --master local target/scala-2.11/decision-tree_2.11-1.0.jar > ./output.txt
+

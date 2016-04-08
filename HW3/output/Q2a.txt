@@ -1,0 +1,1 @@
+Accuracy of the Decision Tree is 0.8823529411764706

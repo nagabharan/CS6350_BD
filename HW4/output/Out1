@@ -1,0 +1,47 @@
+No such record found
+
+Log:
+HadoopVersion	PigVersion	UserId	StartedAt	FinishedAt	Features
+1.0.4	0.15.0	nagabharan	2016-04-13 11:31:24	2016-04-13 11:33:10	HASH_JOIN,GROUP_BY,ORDER_BY,DISTINCT,FILTER,LIMIT
+
+Success!
+
+Job Stats (time in seconds):
+JobId	Maps	Reduces	MaxMapTime	MinMapTime	AvgMapTime	MedianMapTime	MaxReduceTime	MinReduceTime	AvgReduceTime	MedianReducetime	Alias	Feature	Outputs
+job_local_0001	1	0	n/a	n/a	n/a	n/a	0	0	00	Ratings	MAP_ONLY	
+job_local_0002	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	ComedyDrama,MovieRatings,Movies	HASH_JOIN	
+job_local_0003	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	groupA,groupB	GROUP_BY,MULTI_QUERY,COMBINER	
+job_local_0004	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	groupdesc	SAMPLER	
+job_local_0005	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	groupdesc	ORDER_BY,COMBINER	
+job_local_0006	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	A,groupdesc		
+job_local_0007	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	jmovie	HASH_JOIN	
+job_local_0008	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Ratings,jratings	HASH_JOIN	
+job_local_0009	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Age,Users,final_userID,juserratings	HASH_JOIN	
+job_local_0010	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a		DISTINCT	file:/tmp/temp-272004958/tmp1817471981,
+
+Input(s):
+Successfully read 1000209 records from: "/home/nagabharan/Desktop/HW4/ratings.dat"
+Successfully read 3883 records from: "/home/nagabharan/Desktop/HW4/movies.dat"
+Successfully read 6040 records from: "/home/nagabharan/Desktop/HW4/users.dat"
+
+Output(s):
+Successfully stored 0 records in: "file:/tmp/temp-272004958/tmp1817471981"
+
+Counters:
+Total records written : 0
+Total bytes written : 0
+Spillable Memory Manager spill count : 0
+Total bags proactively spilled: 1
+Total records proactively spilled: 396396
+
+Job DAG:
+job_local_0001	->	job_local_0002,job_local_0008,
+job_local_0002	->	job_local_0003,
+job_local_0003	->	job_local_0004,job_local_0007,
+job_local_0004	->	job_local_0005,
+job_local_0005	->	job_local_0006,
+job_local_0006	->	job_local_0007,
+job_local_0007	->	job_local_0008,
+job_local_0008	->	job_local_0009,
+job_local_0009	->	job_local_0010,
+job_local_0010

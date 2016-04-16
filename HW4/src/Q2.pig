@@ -1,10 +1,10 @@
 /* Load dataset */
-Movies = load '/home/nagabharan/Desktop/HW4/dataset/movies.dat' using PigStorage('#') as (MovieID:chararray,Title:chararray, Genres:chararray);
+Movies = LOAD '/Spring-2016-input/movies.dat' USING PigStorage(':') AS (MovieID,Title,Genres);
 
-Ratings = load '/home/nagabharan/Desktop/HW4/dataset/ratings.dat' using PigStorage('#') as (UserID:chararray,MovieID:chararray, Rating:double, Timestamp:int);
+Ratings = LOAD '/Spring-2016-input/ratings.dat'  USING PigStorage(':') AS (UserID,MovieID,Rating,Timestamp);
 
 /* Cogroup using MovieID */
-MoviesRatings = cogroup Movies by (MovieID), Ratings by (MovieID);
+MoviesRatings = COGROUP Movies BY MovieID, Ratings BY MovieID;
 
 /* Get first 5 */
 final = limit MoviesRatings 5;

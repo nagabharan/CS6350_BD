@@ -1,47 +1,43 @@
-No such record found
+(673)
+(1010)
+(1835)
+(2931)
 
-Log:
-HadoopVersion	PigVersion	UserId	StartedAt	FinishedAt	Features
-1.0.4	0.15.0	nagabharan	2016-04-13 11:31:24	2016-04-13 11:33:10	HASH_JOIN,GROUP_BY,ORDER_BY,DISTINCT,FILTER,LIMIT
+Script Statistics:
+
+HadoopVersion   PigVersion      UserId  StartedAt       FinishedAt      Features
+2.4.1   0.13.0  nxn141730       2016-04-16 16:19:16     2016-04-16 16:21:35     UP_BY,FILTER
 
 Success!
 
 Job Stats (time in seconds):
-JobId	Maps	Reduces	MaxMapTime	MinMapTime	AvgMapTime	MedianMapTime	MaxReduceTime	MinReduceTime	AvgReduceTime	MedianReducetime	Alias	Feature	Outputs
-job_local_0001	1	0	n/a	n/a	n/a	n/a	0	0	00	Ratings	MAP_ONLY	
-job_local_0002	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	ComedyDrama,MovieRatings,Movies	HASH_JOIN	
-job_local_0003	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	groupA,groupB	GROUP_BY,MULTI_QUERY,COMBINER	
-job_local_0004	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	groupdesc	SAMPLER	
-job_local_0005	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	groupdesc	ORDER_BY,COMBINER	
-job_local_0006	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	A,groupdesc		
-job_local_0007	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	jmovie	HASH_JOIN	
-job_local_0008	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Ratings,jratings	HASH_JOIN	
-job_local_0009	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a	Age,Users,final_userID,juserratings	HASH_JOIN	
-job_local_0010	1	1	n/a	n/a	n/a	n/a	n/a	n/a	n/a	n/a		DISTINCT	file:/tmp/temp-272004958/tmp1817471981,
+JobId   Maps    Reduces MaxMapTime      MinMapTIme      AvgMapTime      MedianMaduceTime        MinReduceTime   AvgReduceTime   MedianReducetime        Alias   ts
+job_1459540264665_3117  1       0       4       4       4       4       0       ratings MAP_ONLY
+job_1459540264665_3118  2       1       6       2       4       4       5       Afterjoin,comedyDrama,movies,moviesJoinRating,ratings   HASH_JOIN
+job_1459540264665_3119  1       1       3       3       3       3       2       averageRating,groupByrating     GROUP_BY,COMBINER
+job_1459540264665_3120  1       1       2       2       2       2       2       lowestRatedMovie,temp,temp1     GROUP_BY
+job_1459540264665_3121  2       1       6       2       4       4       5       form,lowestjoinuser,ratings     HASH_JOIN
+job_1459540264665_3123  2       1       3       2       3       3       3       age20and40,result1,result2,users        HASH_JOIN       hdfs://cshadoop1/tmp/temmp-1426196132,
 
 Input(s):
-Successfully read 1000209 records from: "/home/nagabharan/Desktop/HW4/ratings.dat"
-Successfully read 3883 records from: "/home/nagabharan/Desktop/HW4/movies.dat"
-Successfully read 6040 records from: "/home/nagabharan/Desktop/HW4/users.dat"
+Successfully read 1000209 records (21593869 bytes) from: "/Spring-2016-input/rat
+Successfully read 3883 records from: "/Spring-2016-input/movies.dat"
+Successfully read 6040 records from: "/Spring-2016-input/users.dat"
 
 Output(s):
-Successfully stored 0 records in: "file:/tmp/temp-272004958/tmp1817471981"
+Successfully stored 4 records (39 bytes) in: "hdfs://cshadoop1/tmp/temp161194668132"
 
 Counters:
-Total records written : 0
-Total bytes written : 0
+Total records written : 4
+Total bytes written : 39
 Spillable Memory Manager spill count : 0
-Total bags proactively spilled: 1
-Total records proactively spilled: 396396
+Total bags proactively spilled: 0
+Total records proactively spilled: 0
 
 Job DAG:
-job_local_0001	->	job_local_0002,job_local_0008,
-job_local_0002	->	job_local_0003,
-job_local_0003	->	job_local_0004,job_local_0007,
-job_local_0004	->	job_local_0005,
-job_local_0005	->	job_local_0006,
-job_local_0006	->	job_local_0007,
-job_local_0007	->	job_local_0008,
-job_local_0008	->	job_local_0009,
-job_local_0009	->	job_local_0010,
-job_local_0010
+job_1459540264665_3117  ->      job_1459540264665_3118,job_1459540264665_3121,
+job_1459540264665_3118  ->      job_1459540264665_3119,
+job_1459540264665_3119  ->      job_1459540264665_3120,
+job_1459540264665_3120  ->      job_1459540264665_3121,
+job_1459540264665_3121  ->      job_1459540264665_3123,
+job_1459540264665_3123

@@ -3,3 +3,33 @@
 (619::Ed (1996)::Comedy,{(619::Ed (1996)::Comedy,,)},{})
 (14::Nixon (1995)::Drama,{(14::Nixon (1995)::Drama,,)},{})
 (1609::187 (1997)::Drama,{(1609::187 (1997)::Drama,,)},{})
+
+Script Statistics:
+
+HadoopVersion   PigVersion      UserId  StartedAt       FinishedAt      Features
+2.4.1   0.13.0  nxn141730       2016-04-16 16:31:42     2016-04-16 16:32:26    COGROUP,LIMIT
+
+Success!
+
+Job Stats (time in seconds):
+JobId   Maps    Reduces MaxMapTime      MinMapTIme      AvgMapTime      MedianMapTime   MaxReduceTime   MinReduceTime   AvgReduceTime   MedianReducetime       Alias    Feature Outputs
+job_1459540264665_3152  2       1       5       3       4       4       5      55       5       grouped,movies,ratings,table_limit      COGROUP
+job_1459540264665_3153  1       1       2       2       2       2       2      22       2                       hdfs://cshadoop1/tmp/temp-1634524618/tmp1795882775,
+
+Input(s):
+Successfully read 3883 records from: "/Spring-2016-input/movies.dat"
+Successfully read 1000209 records from: "/Spring-2016-input/ratings.dat"
+
+Output(s):
+Successfully stored 5 records (89047 bytes) in: "hdfs://cshadoop1/tmp/temp-1634524618/tmp1795882775"
+
+Counters:
+Total records written : 5
+Total bytes written : 89047
+Spillable Memory Manager spill count : 0
+Total bags proactively spilled: 0
+Total records proactively spilled: 0
+
+Job DAG:
+job_1459540264665_3152  ->      job_1459540264665_3153,
+job_1459540264665_3153
